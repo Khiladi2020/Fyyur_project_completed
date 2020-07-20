@@ -20,7 +20,6 @@ from flask_moment import Moment
 from logging import Formatter, FileHandler
 from flask_wtf import Form
 from forms import *
-from models import Venue, Show, Artist, app, db
  
 #----------------------------------------------------------------------------#
 # App Config.
@@ -351,6 +350,7 @@ def create_venue_submission():
         genres = request.form.getlist('genres'),
         facebook_link = request.form['facebook_link']
         )
+
       db.session.add(newVenue)
       db.session.commit()
       # on successful db insert, flash success
